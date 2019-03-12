@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="basicstruts2" extends="struts-default">
+	
+		<action name="welcome" class="br.com.teteo.action.Welcome">
+			<result name="welcome">/welcome.jsp</result>
+		</action>
+	
+		<action name="cadastrarExame" class="br.com.teteo.action.ExameRegistroAcao">
+			<result name="failure">/exameRegistro.jsp</result>
+		    <result name="success" type="redirect">
+		    	<param name = "location">/exameRegistro.jsp</param>
+		    </result>
+		</action>
+		
+		<action name="exameLeitura" class="br.com.teteo.action.ExameLeituraAcao">
+			<result name="success">/exameLeitura.jsp</result>
+		</action>
+		
+		<action name="removerExame" class="br.com.teteo.action.ExameRemoveAcao">
+		    <result name="success" type="redirect">
+		    	<param name = "location">exameLeitura.action</param>
+		    </result>
+		</action>
+		
+		<action name="editarExame" class="br.com.teteo.action.ExameEditarAcao">
+			<result name="success">/exameEditar.jsp</result>
+		</action>
+		
+		<action name="updateExame" class="br.com.teteo.action.ExameUpdateAcao">
+		    <result name="success" type="redirect">
+		    <param name = "location">exameLeitura.action</param>
+		    </result>
+		</action>
+		
+	</package>
+</struts>
